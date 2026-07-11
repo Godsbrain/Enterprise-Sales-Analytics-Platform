@@ -2,33 +2,9 @@
 
 ## Overview
 
-The Enterprise Sales Analytics Platform is an end-to-end analytics solution designed to transform raw CRM and ERP data into actionable business insights.
+The Enterprise Sales Analytics Platform is an end-to-end analytics solution built using Snowflake, Python, Jupyter Notebook, and Power BI.
 
-The project leverages Snowflake's Medallion Architecture (Bronze, Silver, and Gold layers) to build a scalable cloud data warehouse, connects the curated datasets to Python for analytics, and delivers executive-level reporting through Power BI dashboards.
-
-The solution demonstrates modern data engineering, analytics, and business intelligence practices using:
-
-- Snowflake
-- SQL
-- Python
-- Jupyter Notebook
-- Pandas
-- Matplotlib
-- Power BI
-
----
-
-## Business Problem
-
-Organizations often store customer, product, and sales information across multiple operational systems, making it difficult to create a unified view of business performance.
-
-This project addresses that challenge by:
-
-- Integrating CRM and ERP datasets
-- Building a centralized Snowflake data warehouse
-- Creating a single source of truth
-- Supporting executive reporting and analytics
-- Providing a foundation for future forecasting and machine learning initiatives
+This project integrates CRM and ERP datasets into a centralized Snowflake Data Warehouse using the Bronze-Silver-Gold architecture, enabling business reporting, customer analytics, and executive decision-making.
 
 ---
 
@@ -49,7 +25,7 @@ CRM Data              ERP Data
              |
              v
        Gold Layer
- (Business-Ready Data)
+ (Business Ready Data)
              |
       +------+------+
       |             |
@@ -60,26 +36,15 @@ CRM Data              ERP Data
 
 ---
 
-# Technology Stack
-
-## Data Warehouse
+# Technologies Used
 
 - Snowflake
 - SQL
-
-## Analytics
-
 - Python
 - Pandas
-- NumPy
+- Jupyter Notebook
 - Matplotlib
-
-## Business Intelligence
-
 - Power BI
-
-## Version Control
-
 - Git
 - GitHub
 
@@ -89,74 +54,57 @@ CRM Data              ERP Data
 
 ## Bronze Layer
 
-The Bronze Layer stores raw source-system data exactly as received.
+Raw source data loaded directly from CRM and ERP systems.
 
-### CRM Tables
+### CRM Data
 
 - CRM_CUSTOMERS_RAW
 - CRM_PRODUCTS_RAW
 - CRM_SALES_RAW
 
-### ERP Tables
+### ERP Data
 
 - ERP_CUSTOMERS_RAW
 - ERP_PRODUCTS_RAW
 - ERP_LOCATIONS_RAW
 
-### Responsibilities
-
-- Data ingestion
-- Data preservation
-- Source system auditability
-
 ---
 
 ## Silver Layer
 
-The Silver Layer standardizes and cleans raw data before integration.
+The Silver Layer performs:
 
-### Customer Models
+- Data Cleaning
+- Data Standardization
+- Data Integration
+- Data Enrichment
+
+### Core Tables
 
 - DIM_CUSTOMER_STG
-- ERP_CUSTOMER_STG
-
-### Product Models
-
 - DIM_PRODUCT_STG
-- ERP_PRODUCT_STG
-
-### Fact Models
-
 - FACT_SALES_STG
-
-### Transformations Performed
-
-- Gender standardization
-- Marital status standardization
-- Field renaming
-- Data cleansing
-- Business rule implementation
+- ERP_CUSTOMER_STG
+- ERP_PRODUCT_STG
 
 ---
 
 ## Gold Layer
 
-The Gold Layer provides reporting-ready business datasets.
+Business-ready datasets used for analytics.
 
 ### Dimensions
 
 - DIM_CUSTOMER_CLEAN
 - DIM_PRODUCT_PBI_CLEAN
 
-### Fact Tables
+### Facts
 
 - FACT_SALES
 
 ---
 
 # Data Model
-
-The project follows a Star Schema design.
 
 ```text
       DIM_CUSTOMER_CLEAN
@@ -170,161 +118,39 @@ The project follows a Star Schema design.
       DIM_PRODUCT_PBI_CLEAN
 ```
 
-### Fact Table
-
-**FACT_SALES**
-
-Contains:
-
-- Order Number
-- Customer ID
-- Product Key
-- Order Date
-- Ship Date
-- Due Date
-- Quantity
-- Unit Price
-- Sales Amount
-
-### Customer Dimension
-
-**DIM_CUSTOMER_CLEAN**
-
-Contains:
-
-- Customer Information
-- Customer Demographics
-- Gender
-- Marital Status
-- Birth Date
-
-### Product Dimension
-
-**DIM_PRODUCT_PBI_CLEAN**
-
-Contains:
-
-- Product Information
-- Product Attributes
-- Product Classification
-
----
-
-# Data Quality Management
-
-Several data quality challenges were identified and resolved during implementation.
-
-## Customer Dimension
-
-### Issues Identified
-
-- Duplicate Customer IDs
-- Null Customer IDs
-
-### Solution
-
-- Created DIM_CUSTOMER_CLEAN
-- Applied ROW_NUMBER() based deduplication
-- Removed null customer records
-
----
-
-## Product Dimension
-
-### Issues Identified
-
-- Duplicate Product Keys
-
-### Solution
-
-- Created DIM_PRODUCT_PBI_CLEAN
-- Applied deduplication rules
-- Created Power BI optimized dimension tables
-
 ---
 
 # Python Analytics
 
-The Gold Layer was connected to Jupyter Notebook to support analytical workflows.
-
-## Libraries Used
-
-```python
-pandas
-numpy
-matplotlib
-snowflake-connector-python
-```
-
-## Data Extraction
-
-The following datasets were loaded into Pandas DataFrames:
-
-- FACT_SALES
-- DIM_CUSTOMER_CLEAN
-- DIM_PRODUCT_PBI_CLEAN
-
----
-
-# Exploratory Data Analysis (EDA)
-
-## Monthly Sales Trend
-
-### Business Question
-
-How has revenue changed over time?
-
-### Insights
-
-- Revenue increased significantly over the analysis period.
-- Sales growth accelerated during 2013.
-- Strong overall positive trend was observed.
+The Gold Layer was connected to Jupyter Notebook to perform exploratory data analysis and trend analysis.
 
 ### Monthly Sales Trend
 
-images/Dashboard (2).png
+images/Dashboard(2).png
 
----
+### Sales Trend Analysis
 
-## Trend Analysis
+The chart below compares actual sales against the overall sales trend.
 
-A trend line was developed to evaluate long-term sales growth.
+images/Dashboard(3).png
 
-### Actual vs Trend
+### Key Findings
 
-images/actual_vs_trend.png
-
-### Observations
-
-- Revenue demonstrates sustained growth.
-- The actual sales pattern outperforms the baseline trend in later periods.
-- Business performance shows increasing momentum across the observed timeline.
+- Revenue increased significantly over time.
+- Strong growth occurred during 2013.
+- Overall sales performance demonstrated positive momentum.
 
 ---
 
 # Power BI Executive Dashboard
 
-An interactive executive dashboard was developed using the Snowflake Gold Layer.
-
-## Dashboard Objectives
-
-Provide decision-makers with visibility into:
-
-- Revenue Performance
-- Customer Activity
-- Order Volumes
-- Customer Segmentation
-- Sales Trends
-
----
+An executive dashboard was built using Power BI and connected to the Snowflake Gold Layer.
 
 ## Executive Dashboard
 
-images/executive_dashboard.png
+images/Dashboard(1).png
 
----
-
-## KPI Summary
+### KPI Summary
 
 | Metric | Value |
 |----------|----------|
@@ -334,37 +160,29 @@ images/executive_dashboard.png
 | Total Quantity Sold | 60.42K |
 | Revenue Per Customer | $1.59K |
 
----
+### Dashboard Features
 
-## Dashboard Features
-
-### Revenue Trend Analysis
-
-Tracks organizational revenue performance over time.
-
-### Top Customers
-
-Identifies the highest revenue-generating customers.
-
-### Revenue by Gender
-
-Analyzes revenue contribution by customer demographics.
-
-### Revenue by Marital Status
-
-Provides insight into customer purchasing behavior.
-
-### Interactive Filters
-
-Users can filter dashboard results by:
-
-- Order Date
-- Gender
-- Marital Status
+- Revenue Trend Analysis
+- Top Revenue Customers
+- Revenue by Gender
+- Revenue by Marital Status
+- Interactive Filtering
 
 ---
 
-# Key Business Insights
+# Customer Analytics Dashboard
+
+images/Dashboard(4).png
+
+### Insights
+
+- Customer demographics contribute differently to revenue performance.
+- High-value customers were identified for targeted business strategies.
+- Customer segmentation supports data-driven decision making.
+
+---
+
+# Business Insights
 
 ## Revenue Performance
 
@@ -376,11 +194,9 @@ $29 Million
 
 in revenue over the analysis period.
 
----
+## Customer Base
 
-## Customer Activity
-
-The platform analyzed:
+The platform analyzed approximately:
 
 ```text
 18,000 Customers
@@ -389,36 +205,20 @@ The platform analyzed:
 and
 
 ```text
-28,000 Orders
+28,000 Orders.
 ```
-
-providing extensive visibility into customer purchasing behavior.
-
----
 
 ## Revenue Growth
 
-Sales performance increased substantially during the later periods of the analysis, indicating positive business growth.
-
----
+Sales performance increased considerably over the observed period, indicating continued business expansion.
 
 ## Customer Segmentation
 
-The dashboard revealed meaningful differences in revenue contribution across:
+Analysis revealed differences in revenue contribution across:
 
 - Gender groups
-- Marital status segments
+- Marital status categories
 - High-value customer segments
-
----
-
-## Top Customer Analysis
-
-High-value customers were successfully identified, supporting:
-
-- Customer retention strategies
-- Loyalty programs
-- Personalized marketing initiatives
 
 ---
 
@@ -440,9 +240,10 @@ Enterprise-Sales-Analytics-Platform
 │   └── Project Documentation.pdf
 │
 ├── images
-│   ├── executive_dashboard.png
-│   ├── monthly_sales_trend.png
-│   └── actual_vs_trend.png
+│   ├── Dashboard(1).png
+│   ├── Dashboard(2).png
+│   ├── Dashboard(3).png
+│   └── Dashboard(4).png
 │
 └── README.md
 ```
@@ -451,15 +252,12 @@ Enterprise-Sales-Analytics-Platform
 
 # Future Enhancements
 
-Planned enhancements include:
-
-- Customer Analytics Dashboard
-- Product Performance Dashboard
 - Sales Forecasting Models
 - Demand Forecasting
 - Random Forest Models
-- XGBoost Forecasting Models
-- Power BI Forecast Dashboard
+- XGBoost Forecasting
+- Product Analytics Dashboard
+- Customer Segmentation Models
 - Microsoft Fabric Integration
 
 ---
@@ -480,9 +278,7 @@ Planned enhancements include:
 
 ✅ Power BI Executive Dashboard
 
-✅ Customer Analytics
-
-✅ Interactive Business Intelligence Reporting
+✅ Interactive Reporting
 
 ---
 
@@ -492,4 +288,4 @@ Planned enhancements include:
 
 Data Analytics | Data Engineering | Business Intelligence
 
-[GitHub Repository](https://github.com/Godsbrain/Enterprise-Sales-Analytics-Platform)
+GitHub: https://github.com/Godsbrain/Enterprise-Sales-Analytics-Platform
