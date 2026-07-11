@@ -282,7 +282,7 @@ How has revenue changed over time?
 
 ### Monthly Sales Trend
 
-images/monthly_sales_trend.png
+images/Dashboard (2).png
 
 ---
 
