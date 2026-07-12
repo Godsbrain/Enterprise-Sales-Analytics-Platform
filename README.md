@@ -130,7 +130,7 @@ The Gold Layer was connected to Jupyter Notebook to perform exploratory data ana
 
 The chart below compares actual sales against the overall sales trend.
 
-![Actual vs Trend Analysis](## Customer Analytics Dashboard.png)
+![Actual vs Trend Analysis](Customer Analytics Dashboard.png)
 
 ### Key Findings
 
