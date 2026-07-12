@@ -106,7 +106,7 @@ Business-ready datasets used for analytics.
 
 # Data Model
 
-```text
+text
       DIM_CUSTOMER_CLEAN
                |
                |
@@ -132,7 +132,7 @@ The Gold Layer was connected to Jupyter Notebook to perform exploratory data ana
 
 The chart below compares actual sales against the overall sales trend.
 
-![Actual vs Trend Analysis](## Customer Analytics Dashboard).png
+![Actual vs Trend Analysis](## Customer Analytics Dashboard.png)
 
 ### Key Findings
 
@@ -148,7 +148,7 @@ An executive dashboard was built using Power BI and connected to the Snowflake G
 
 ## Executive Dashboard
 
-![Executive Dashboard](images/executive_dashboard.png).png
+![Executive Dashboard](images/executive_dashboard.png)
 
 ### KPI Summary
 
