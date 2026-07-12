@@ -126,13 +126,13 @@ The Gold Layer was connected to Jupyter Notebook to perform exploratory data ana
 
 ### Monthly Sales Trend
 
-images/Dashboard(2).png
+images/Dashboard (2).png
 
 ### Sales Trend Analysis
 
 The chart below compares actual sales against the overall sales trend.
 
-images/Dashboard(3).png
+images/Dashboard (3).png
 
 ### Key Findings
 
