@@ -172,7 +172,7 @@ An executive dashboard was built using Power BI and connected to the Snowflake G
 
 # Customer Analytics Dashboard
 
-![Customer Analytics Dashboard](images/customer_analytics_dashboard).png
+images/customer_analytics_dashboard.png
 
 ### Insights
 
