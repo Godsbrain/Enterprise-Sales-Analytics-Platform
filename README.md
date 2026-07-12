@@ -126,13 +126,13 @@ The Gold Layer was connected to Jupyter Notebook to perform exploratory data ana
 
 ### Monthly Sales Trend
 
-images/Dashboard (2).png
+![Monthly Sales Trend](images/monthly_sales_trend.png).png
 
 ### Sales Trend Analysis
 
 The chart below compares actual sales against the overall sales trend.
 
-images/Dashboard (3).png
+![Actual vs Trend Analysis](## Customer Analytics Dashboard).png
 
 ### Key Findings
 
@@ -148,7 +148,7 @@ An executive dashboard was built using Power BI and connected to the Snowflake G
 
 ## Executive Dashboard
 
-images/Dashboard(1).png
+![Executive Dashboard](images/executive_dashboard.png).png
 
 ### KPI Summary
 
@@ -172,7 +172,7 @@ images/Dashboard(1).png
 
 # Customer Analytics Dashboard
 
-images/Dashboard(4).png
+![Customer Analytics Dashboard](images/customer_analytics_dashboard).png
 
 ### Insights
 
