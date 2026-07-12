@@ -106,7 +106,7 @@ Business-ready datasets used for analytics.
 
 # Data Model
 
-text
+```text
       DIM_CUSTOMER_CLEAN
                |
                |
@@ -117,8 +117,6 @@ text
                |
       DIM_PRODUCT_PBI_CLEAN
 ```
-
----
 
 # Python Analytics
 
